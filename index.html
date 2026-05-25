@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Camile Saraiva! ✨ 22 Anos</title>
+
+    <!-- Meta tags de SEO e compartilhamento -->
+    <meta name="description"
+        content="Um site de aniversário repleto de carinho, brilhos e surpresas para Camile Saraiva. Parabéns pelos seus 22 anos!">
+    <meta property="og:title" content="Feliz Aniversário, Camile! ✨">
+    <meta property="og:description" content="Uma homenagem especial a uma pessoa dedicada, doce e cheia de sonhos.">
+
+    <!-- Google Fonts: Cursiva elegante e Sans-serif moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Biblioteca Canvas Confetti via CDN para explosões de confete -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Canvas de Partículas e Brilhos de Fundo -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Cursor Customizado -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+
+    <!-- Loader Inicial Elegante -->
+    <div id="loader" class="loader-container">
+        <div class="loader-content">
+            <div class="loader-ring">
+                <span class="loader-number">0</span>
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" class="bg-circle"></circle>
+                    <circle cx="50" cy="50" r="45" class="progress-circle"></circle>
+                </svg>
+            </div>
+            <div class="loader-messages">
+                <p class="loader-msg active">Carregando carinho...</p>
+                <p class="loader-msg">Preparando confetes...</p>
+                <p class="loader-msg">Doce e sonhadora...</p>
+                <p class="loader-msg">Futura Enfermeira...</p>
+            </div>
+            <button id="btn-entrar" class="btn-entrar hidden">Entrar na Surpresa 💖</button>
+        </div>
+    </div>
+
+    <!-- Áudio de Fundo (Procura 'musica.mp3' ou 'musica.m4a' locais ou cai no fallback clássico do Satie) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="musica.mp3" type="audio/mpeg">
+        <source src="musica.m4a" type="audio/mp4">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Erik_Satie_-_Gymnopedie_No._1.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <!-- Controle de Música Flutuante -->
+    <button id="music-toggle" class="music-toggle-btn" aria-label="Controlar música">
+        <div class="music-notes">
+            <span class="note">♫</span>
+            <span class="note">♪</span>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="music-icon icon-playing">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="music-icon icon-muted hidden">
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+    </button>
+
+    <!-- SEÇÃO 1 — HERO / ABERTURA -->
+    <section id="hero" class="section hero-section">
+        <!-- Elementos Flutuantes Adicionais -->
+        <div class="floating-elements-container">
+            <!-- Corações, Estetoscópios e Balões SVG espalhados -->
+            <div class="floating-item heart-item item-1">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+            </div>
+            <div class="floating-item steth-item item-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5v1h6v-1c0-2.31-1-4.24-2.5-5.5zM12 2v6M9 5h6M19.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5v1h6v-1c0-2.31-1-4.24-2.5-5.5z" />
+                    <path d="M12 8a6 6 0 0 0-6 6v2a6 6 0 0 0 12 0v-2a6 6 0 0 0-6-6z" />
+                </svg>
+            </div>
+            <div class="floating-item star-item item-3">✨</div>
+            <div class="floating-item balloon-item item-4">🎈</div>
+            <div class="floating-item heart-item item-5">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-container container">
+            <div class="hero-image-wrapper reveal">
+                <div class="glow-ring"></div>
+                <img src="camile.png" alt="Camile Saraiva Caricatura" class="hero-image">
+            </div>
+
+            <div class="hero-info text-center reveal">
+                <h1 class="hero-name font-cursive">Camile Saraiva</h1>
+                <div class="hero-badges">
+                    <span class="badge badge-age">22 anos ✨</span>
+                    <span class="badge badge-profession">Auxiliar Administrativa • Futura Enfermeira 💜</span>
+                </div>
+                <p class="hero-description">“Uma menina doce, dedicada e cheia de sonhos.”</p>
+
+                <a href="#presente" class="btn-scroll scroll-link">
+                    Continue descendo
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-down-icon">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2 — O PRESENTE 🎁 -->
+    <section id="presente" class="section presente-section">
+        <div class="presente-container container text-center">
+            <h2 class="section-title font-cursive reveal">Um presente feito com carinho 💝</h2>
+
+            <div class="present-card reveal">
+                <div class="present-card-bg-glow"></div>
+                <div class="present-card-content">
+                    <p class="present-intro">
+                        "Mais do que um presente, queremos entregar um momento especial para alguém que merece muito."
+                    </p>
+
+                    <!-- Caixa de Presente Interativa -->
+                    <div id="gift-box-wrapper" class="gift-box-wrapper">
+                        <div class="gift-box-inner">
+                            <img id="gift-image" src="gift_closed.png" alt="Caixa de Presente Surpresa"
+                                class="gift-image">
+                            <div class="click-hint">Clique para abrir! ✨</div>
+                        </div>
+                    </div>
+
+                    <!-- Área de Revelação da Surpresa (inicialmente oculta) -->
+                    <div id="gift-reveal-content" class="gift-reveal-content hidden">
+                        <h3 class="reveal-title font-cursive">Para Camile, com amor! 🌸</h3>
+                        <p class="reveal-text">
+                            Esperamos que esse presente represente um pouquinho da nossa admiração por você. Você
+                            ilumina todos ao seu redor com sua doçura e dedicação.
+                        </p>
+                        <div class="reveal-highlight">
+                            <span>🎁 Prepare-se para uma surpresa maravilhosa!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3 — RESPONSÁVEIS 💜 -->
+    <section id="responsaveis" class="section responsaveis-section">
+        <div class="responsaveis-container container">
+            <h2 class="section-title text-center font-cursive reveal">Feito com carinho por ✨</h2>
+
+            <div class="organizers-grid">
+                <!-- Card 1 - Lucas -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-lilas">
+                        <span class="avatar-initials">LU</span>
+                    </div>
+                    <h3 class="organizer-name">Lucas</h3>
+                    <p class="organizer-role">Organizador 💜</p>
+                </div>
+
+                <!-- Card 2 - Joelton -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-rosa">
+                        <span class="avatar-initials">JO</span>
+                    </div>
+                    <h3 class="organizer-name">Joelton</h3>
+                    <p class="organizer-role">Organizador 💜</p>
+                </div>
+
+                <!-- Card 3 - Maira -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-azul">
+                        <span class="avatar-initials">MA</span>
+                    </div>
+                    <h3 class="organizer-name">Maira</h3>
+                    <p class="organizer-role">Organizadora 🌸</p>
+                </div>
+
+                <!-- Card 4 - Nilma -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-ouro">
+                        <span class="avatar-initials">NI</span>
+                    </div>
+                    <h3 class="organizer-name">Nilma</h3>
+                    <p class="organizer-role">Organizadora 🌸</p>
+                </div>
+
+                <!-- Card 5 - Adriana -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-lilas">
+                        <span class="avatar-initials">AD</span>
+                    </div>
+                    <h3 class="organizer-name">Adriana</h3>
+                    <p class="organizer-role">Organizadora 🌸</p>
+                </div>
+
+                <!-- Card 6 - Mariane -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-rosa">
+                        <span class="avatar-initials">MA</span>
+                    </div>
+                    <h3 class="organizer-name">Mariane</h3>
+                    <p class="organizer-role">Organizadora 🌸</p>
+                </div>
+
+                <!-- Card 7 - Jamile -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-azul">
+                        <span class="avatar-initials">JA</span>
+                    </div>
+                    <h3 class="organizer-name">Jamile</h3>
+                    <p class="organizer-role">Organizadora 🌸</p>
+                </div>
+
+                <!-- Card 8 - Luan -->
+                <div class="organizer-card reveal">
+                    <div class="avatar-wrapper bg-azul">
+                        <span class="avatar-initials">LU</span>
+                    </div>
+                    <h3 class="organizer-name">Luan</h3>
+                    <p class="organizer-role">Organizador 🌸</p>
+                </div>
+            </div>
+
+            <p class="responsaveis-footer text-center reveal">
+                “Porque pessoas especiais merecem momentos especiais.”
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Geral -->
+    <footer class="main-footer">
+        <p>Desenvolvido com 💖 em comemoração aos 22 anos da Camile.</p>
+    </footer>
+
+    <!-- JS Principal -->
+    <script src="script.js"></script>
+</body>
+
+</html>
